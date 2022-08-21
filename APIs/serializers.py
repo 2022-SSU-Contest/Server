@@ -5,7 +5,8 @@ from .models import Video
 class VideosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Video
-        fields = ('word','url')
+        fields=('url',)
+        # fields = ('word','url')
     # id = serializers.IntegerField()
-    word = serializers.CharField()
+    # word = serializers.CharField()
     url = serializers.CharField()
