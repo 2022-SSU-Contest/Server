@@ -23,6 +23,7 @@ def getVideoAPI(request):
         videos = Video.objects.filter(word=w)
         serializer = VideosSerializer(videos,many=True)
         for s in serializer.data:
+            print(dict(s))
             res.append(dict(s).get('url'))
     jsonData = JsonResponse(res, safe=False, json_dumps_params={'ensure_ascii': False})
     return jsonData
