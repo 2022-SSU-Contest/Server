@@ -6,15 +6,18 @@ from .models import Video
 from .serializers import VideosSerializer
 from rest_framework import permissions
 from django.http import JsonResponse
-
+from konlpy.tag import Komoran
+komoran = Komoran()
 
 @api_view(['GET'])
 def getVideoAPI(request): 
-    words = request.GET['words']
+    sentence = request.GET['words']
     # print("입력 : " + words)
     # words -> 형태소 분석
     # videos = Video.objects.all()
-    words = words.split(',')
+    morpheme = komoran.pos(sentence)
+    words = list(map(lambda x : x[0],morpheme))
+    print(words)
     res=[]
     for w in words:
         videos = Video.objects.filter(word=w)
