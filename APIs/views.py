@@ -6,7 +6,7 @@ from .models import Video
 from .serializers import VideosSerializer
 from rest_framework import permissions
 from django.http import JsonResponse
-
+import rest_framework.renderer.JSONRenderer
 
 @api_view(['GET'])
 def getVideoAPI(request): 
