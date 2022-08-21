@@ -58,7 +58,7 @@ cover/
 # Django stuff:
 *.log
 local_settings.py
-db.sqlite3
+# db.sqlite3
 db.sqlite3-journal
 
 # Flask stuff:
@@ -121,12 +121,9 @@ celerybeat.pid
 
 # Environments
 .env
-.venv
 env/
-venv/
 ENV/
 env.bak/
-venv.bak/
 
 # Spyder project settings
 .spyderproject
