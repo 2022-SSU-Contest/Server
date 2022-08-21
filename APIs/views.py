@@ -11,19 +11,14 @@ komoran = Komoran()
 
 @api_view(['GET'])
 def getVideoAPI(request): 
-    sentence = request.GET['words']
-    # print("입력 : " + words)
-    # words -> 형태소 분석
-    # videos = Video.objects.all()
+    sentence = request.GET['sentence']
     morpheme = komoran.pos(sentence)
     words = list(map(lambda x : x[0],morpheme))
-    print(words)
     res=[]
     for w in words:
         videos = Video.objects.filter(word=w)
         serializer = VideosSerializer(videos,many=True)
         for s in serializer.data:
-            print(dict(s))
             res.append(dict(s).get('url'))
     jsonData = JsonResponse(res, safe=False, json_dumps_params={'ensure_ascii': False})
     return jsonData
