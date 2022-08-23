@@ -57,6 +57,7 @@ MIDDLEWARE = [
 ]
 CORS_ORIGIN_WHITELIST = (
     "http://localhost:8080",
+    "http://192.168.56.1:8080",
 )
 
 ROOT_URLCONF = 'SignLanguageProject.urls'
